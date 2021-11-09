@@ -1,8 +1,8 @@
-class Node {
+class No {
     value: number;
-    nextNode: Node;
+    nextNode: No | null;
 
-    constructor(value) {
+    constructor(value: number) {
         this.value = value;
         this.nextNode = null;
     };
@@ -13,14 +13,16 @@ class Node {
     getValue = (): number => {
         return this.value;
     };
-    setNextNode = (newNode: Node) => {
+    setNextNode = (newNode: No) => {
         return this.nextNode = newNode;
     };
-    getNextNode = (): Node => {
+    getNextNode = (): No | null => {
         return this.nextNode;
     }
     toString = (): string => {
-        return "Node value is: " + this.value;
+        return "Data: " + this.value;
     }
 
 }
+
+export default No;
