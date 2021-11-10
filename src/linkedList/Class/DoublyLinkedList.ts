@@ -39,7 +39,7 @@ class DoublyLinkedList {
             this.tail = node;
         }  
     }
-    setTail(value: number) {
+    protected setTail(value: number) {
         const node: DoublyNo = new DoublyNo(value);
         const currentTail: DoublyNo | null = this.tail;
         if(currentTail === null){

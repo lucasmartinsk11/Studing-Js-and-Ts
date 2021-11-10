@@ -12,14 +12,14 @@ linkedQueue.enqueue(5);
 
 console.log(linkedQueue.toString());
 
-// while (linkedQueue.peek() !== null) {
+while (linkedQueue.peek() !== null) {
 
-//     console.log(linkedQueue.toString());
-//     if(linkedQueue.peek()?.getValue() === 3){
-//         linkedQueue.dequeue();
-//         linkedQueue.enqueue(6);
-//     }else{
-//         linkedQueue.dequeue();
-//     }
+    console.log(linkedQueue.toString());
+    if(linkedQueue.peek()?.getValue() === 3){
+        linkedQueue.dequeue();
+        linkedQueue.enqueue(6);
+    }else{
+        linkedQueue.dequeue();
+    }
     
-// }
+}
