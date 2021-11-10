@@ -8,29 +8,29 @@ class LinkedList {
     }
 
 
-    setNodeAtHead = (newNode: No) => {
+    setNodeAtHead(newNode: No) {
         newNode.setNextNode(this.head!);
         this.head = newNode;
     }
-    setAtHead = (value: number) => {
+    setAtHead(value: number) {
         const node: No = new No(value);
         node.setNextNode(this.head!);
         this.head = node;
     }
-    orderedInsertion = (value: number) => {
+    orderedInsertion(value: number) {
         const newNode: No = new No(value);
         let current: No | null = this.head;
 
-        if(this.head === null || value < this.head?.getValue()!){
+        if (this.head === null || value < this.head?.getValue()!) {
             this.setAtHead(value);
             return null
         }
-        
 
-        while (current !== null){
+
+        while (current !== null) {
             let nextNode: No = current.getNextNode()!;
 
-            if(value > current.getValue() && value < nextNode.getValue()){
+            if (value > current.getValue() && value < nextNode.getValue()) {
                 newNode.setNextNode(nextNode);
                 current.setNextNode(newNode);
                 return null;
@@ -40,10 +40,27 @@ class LinkedList {
         }
         current = newNode;
     }
-    deleteFromHead = () => {
+    deleteFromHead() {
         this.head = this.head?.getNextNode()!;
     }
-    searchNode = (value: number): No | null => {
+    deleteFromAnywhere(value: number) {
+        if (value === this.head?.getValue()) {
+            this.deleteFromHead();
+        }
+        let current: No | null = this.head;
+        let savePrevNodes: No | null = null;
+        while (current !== null) {
+            if (current.getNextNode() !== null && current.getNextNode()?.getValue() === value) {
+                savePrevNodes = current;
+            }
+            if (current.getValue() === value) {
+                savePrevNodes?.setNextNode(current.getNextNode());
+                return null;
+            }
+            current = current.getNextNode();
+        }
+    }
+    searchNode(value: number): No | null {
         let current: No | null = this.head!;
 
         while (current !== null) {
@@ -54,7 +71,7 @@ class LinkedList {
         }
         return null;
     }
-    searchIndex = (value: number): number | null => {
+    searchIndex(value: number): number | null {
         let current: No | null = this.head!;
         let count: number = 0;
         while (current !== null) {
@@ -66,18 +83,17 @@ class LinkedList {
         }
         return null;
     }
-    toString = (): string => {
-        let result: string = "{"
+    toString(): string {
         let current: No | null = this.head;
+        let arr: number[] = [];
 
         while (current !== null) {
-            result += " ,", current.toString()
+            arr.push(current.getValue());
             current = current.getNextNode();
         }
-        result += "}";
-        return result;
+        return `{${arr.join(", ")}}`;
     }
-    length = (): number => {
+    length(): number {
         let count: number = 0
         if (!this.head) {
             return count

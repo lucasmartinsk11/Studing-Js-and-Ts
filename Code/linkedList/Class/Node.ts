@@ -13,7 +13,7 @@ class No {
     getValue = (): number => {
         return this.value;
     };
-    setNextNode = (newNode: No) => {
+    setNextNode = (newNode: No | null) => {
         return this.nextNode = newNode;
     };
     getNextNode = (): No | null => {

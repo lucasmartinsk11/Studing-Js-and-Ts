@@ -7,3 +7,7 @@ for(let i: number = 0; i < 11; i++){
 }
 
 console.log(linkedListDemo.toString());
+
+linkedListDemo.deleteFromAnywhere(0);
+
+console.log(linkedListDemo.toString());
