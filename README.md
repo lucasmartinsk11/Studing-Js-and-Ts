@@ -40,3 +40,4 @@ Back To Back SWE: https://www.youtube.com/channel/UCmJz2DV1a3yfgrR7GqRtUUA
 System Design Interview: https://www.youtube.com/channel/UC9vLsnF6QPYuH51njmIooCQ
 Get that job at google: http://steve-yegge.blogspot.com/2008/03/get-that-job-at-google.html
 mycodeschool: https://www.youtube.com/user/mycodeschool
+TypeDocs: https://blog.bitsrc.io/documenting-your-typescript-projects-there-are-options-da7c8c4ec554

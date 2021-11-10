@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/lucasmartinsk11/Studing-Js-and-Ts#readme",
   "dependencies": {
-    "restify": "^8.6.0"
+    "restify": "^8.6.0",
+    "typedoc": "^0.22.8"
   }
 }

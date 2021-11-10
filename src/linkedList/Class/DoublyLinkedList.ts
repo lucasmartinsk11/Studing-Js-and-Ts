@@ -1,11 +1,13 @@
 import DoublyNo from "./DoublyNode";
 
 class DoublyLinkedList {
-    head: DoublyNo | null;
+    protected head: DoublyNo | null;
+    protected tail: DoublyNo | null;
 
 
     constructor() {
         this.head = null;
+        this.tail = null;
     }
 
 
@@ -30,7 +32,24 @@ class DoublyLinkedList {
         current.setPrevNode(node);
         this.head = node;
     }
-
+    private setHeadAndTail(value: number) {
+        const node: DoublyNo = new DoublyNo(value);
+        if(!this.head && !this.tail){
+            this.head = node;
+            this.tail = node;
+        }  
+    }
+    setTail(value: number) {
+        const node: DoublyNo = new DoublyNo(value);
+        const currentTail: DoublyNo | null = this.tail;
+        if(currentTail === null){
+            this.setHeadAndTail(value);
+            return null;
+        }
+        currentTail.setNextNode(node);
+        node.setPrevNode(currentTail);
+        this.tail = node;
+    }
     doublyLinkedListInsertionSort() {
 
         if (this.head === null || (this.head?.getNextNode() === null && this.head?.getPreviousNode() === null)) {
@@ -51,16 +70,16 @@ class DoublyLinkedList {
                 while (previous?.getValue()! > auxNode.getValue()) {
                     previous = previous?.getPreviousNode()!;
                 }
-                
-                if(previous === null){
-                     this.setNodeAtHead(auxNode);
-                }else{
+
+                if (previous === null) {
+                    this.setNodeAtHead(auxNode);
+                } else {
                     auxNode.setNextNode(previous?.getNextNode());
                     auxNode.setPrevNode(previous);
                     auxNode.getNextNode()!.setPrevNode(auxNode);
                     previous?.setNextNode(auxNode);
                 }
-                
+
             }
             current = current?.getNextNode()!;
         }
@@ -92,7 +111,10 @@ class DoublyLinkedList {
     // }
     deleteFromHead() {
         this.head = this.head?.getNextNode()!;
-        this.head.setPrevNode(null);
+        if (this.head !== null) {
+            this.head.setPrevNode(null);
+        }
+
     }
     searchNode = (value: number): DoublyNo | null => {
         let current: DoublyNo | null = this.head!;
