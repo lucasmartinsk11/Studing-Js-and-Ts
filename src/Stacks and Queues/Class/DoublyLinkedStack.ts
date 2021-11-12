@@ -1,5 +1,5 @@
-import DoublyLinkedList from "../../linkedList/Class/DoublyLinkedList";
-import DoublyNo from "../../linkedList/Class/DoublyNode";
+import DoublyLinkedList from "../../LinkedList/Class/DoublyLinkedList";
+import DoublyNo from "../../LinkedList/Class/DoublyNode";
 
 class DoublyLinkedStack extends DoublyLinkedList{
 

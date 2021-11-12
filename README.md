@@ -6,9 +6,9 @@ Structures:
 
 - Graphs
 - Trees
-- Hashtables:
+- Hashtables
 - LinkedList *
-- Stacks and Queues
+- Stacks and Queues *
 - Arrays *
 - Heaps
 
