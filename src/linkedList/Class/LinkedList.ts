@@ -2,6 +2,7 @@ import No from "./Node";
 
 class LinkedList {
     head: No | null;
+    length: number = 0;
 
     constructor() {
         this.head = null;
@@ -11,11 +12,13 @@ class LinkedList {
     setNodeAtHead(newNode: No) {
         newNode.setNextNode(this.head!);
         this.head = newNode;
+        this.length++;
     }
     setAtHead(value: number) {
         const node: No = new No(value);
         node.setNextNode(this.head!);
         this.head = node;
+        this.length++;
     }
     orderedInsertion(value: number) {
         const newNode: No = new No(value);
@@ -39,9 +42,11 @@ class LinkedList {
             current = current.getNextNode();
         }
         current = newNode;
+        this.length++;
     }
     deleteFromHead() {
         this.head = this.head?.getNextNode()!;
+        this.length--;
     }
     deleteFromAnywhere(value: number) {
         if (value === this.head?.getValue()) {
@@ -59,6 +64,7 @@ class LinkedList {
             }
             current = current.getNextNode();
         }
+        this.length--;
     }
     searchNode(value: number): No | null {
         let current: No | null = this.head!;
@@ -93,18 +99,18 @@ class LinkedList {
         }
         return `{${arr.join(", ")}}`;
     }
-    length(): number {
-        let count: number = 0
-        if (!this.head) {
-            return count
-        }
-        let current: No | null = this.head;
-        while (current !== null) {
-            count++;
-            current = current.getNextNode();
-        }
-        return count;
-    }
+    // length(): number {
+    //     let count: number = 0
+    //     if (!this.head) {
+    //         return count
+    //     }
+    //     let current: No | null = this.head;
+    //     while (current !== null) {
+    //         count++;
+    //         current = current.getNextNode();
+    //     }
+    //     return count;
+    // }
 }
 
 export default LinkedList;
